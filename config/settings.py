@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 
@@ -22,3 +23,15 @@ ANNUAL_FILE_PATTERN = "COTAHIST_A{year}.ZIP"
 DAILY_FILE_PATTERN = "COTAHIST_D{date}.ZIP"
 
 LOG_TIMESTAMP_FORMAT = "%Y%m%d%H%M%S"
+
+KAFKA_BOOTSTRAP_SERVERS = os.getenv(
+    "KAFKA_BOOTSTRAP_SERVERS",
+    "localhost:9092",
+)
+
+KAFKA_COTAHIST_RAW_TOPIC = os.getenv(
+    "KAFKA_COTAHIST_RAW_TOPIC",
+    "b3.cotahist.raw.v1",
+)
+
+KAFKA_CLIENT_ID = "b3-cotahist-producer"
